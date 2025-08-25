@@ -1,0 +1,88 @@
+You are my website refactor assistant. Rebuild the public content of [https://avonsplashcarwash.weebly.com/] as a clean static site. If you cannot fetch [https://avonsplashcarwash.weebly.com/], ask me to paste the visible text and image URLs; after I paste them, continue.
+
+RULES
+- Keep all content organized and neutral—no hallucinated facts.
+- Use semantic HTML5 and accessible markup (landmarks, alt text, proper headings).
+
+OUTPUT FILES & FOLDERS
+Create exactly this structure:
+/
+  index.html
+  blog.html
+  posts/          (empty folder for future posts)
+  assets/
+    images/
+  styles.css
+
+EXTRACT (from [https://avonsplashcarwash.weebly.com/] or my pasted text)
+- Business name (H1 or logo text)
+- Tagline / hero headline
+- Navigation links (Home, About, Services, Blog, Contact, etc.)
+- Section headings & paragraphs (About, Services, Testimonials, etc.)
+- Service names + 1–2 sentence descriptions
+- Contact info (phone, email, address)
+- Footer text (e.g., "© 2025 [Business Name]")
+- Image list (logo, icons, hero, service images). If any image can’t be downloaded, use a similar placeholder and add an HTML comment noting it.
+
+BUILD index.html (Homepage)
+- Header & Nav: logo left, horizontal menu right; collapse to hamburger on mobile.
+- Hero: full-width background image with a subtle dark overlay; centered headline + subheadline; prominent CTA button or phone link (e.g., <a href="tel:[PHONE]">Call Now: [PHONE]</a>).
+- About: two-column on desktop (image/text), stacked on mobile; 2–3 sentence paragraph; “Why Choose Us” bullet list.
+- Services: responsive grid (3 columns desktop → 1 column mobile); each card = icon/image, H3 title, 1–2 sentence description; white card, light border, rounded corners, slight hover lift.
+- Testimonials (if present): light-gray section with 2–3 quote cards, author names, star icons.
+- Contact: two-column desktop / stacked mobile; left = address/phone/email; right = styled but non-functional form (Name, Email, Message, button).
+- Footer: dark background, light text; 3 columns (brand/tagline, quick links, social icons). Bottom line: “© [CURRENT_YEAR] [Business Name]. All rights reserved.”
+
+BUILD blog.html (Blog Index)
+- Same header/nav/footer as index.html; mark “Blog” active.
+- Blog hero (if original has one) or simple full-width bar with heading “Blog” + subtext “Latest tips & updates from [Business Name].”
+- Post list placeholder:
+  <ol style="list-style:none;padding:0;max-width:800px;margin:0 auto;">
+    <li>No posts yet. Check back soon!</li>
+    <!-- Future posts:
+    <li>
+      <a href="posts/[POST_SLUG].html">[Post Title]</a>
+      <span style="color:#666;">([Month Day, Year])</span>
+    </li>
+    -->
+  </ol>
+
+STYLES (styles.css)
+- Use modern, clean styling with CSS variables and responsive layout.
+- Variables:
+  :root {
+    --primary-color: #0077CC;   /* or derived from logo */
+    --secondary-color: #222222; /* footer/dark sections */
+    --bg-light: #F9F9F9;
+    --text-color: #333333;
+    --muted-color: #666666;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+  }
+- Base/reset:
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; }
+  body { font-family:var(--font-body); color:var(--text-color); background:#FFF; line-height:1.6; }
+  a { color:var(--primary-color); text-decoration:none; }
+  img { max-width:100%; display:block; }
+- Button:
+  .btn-primary {
+    display:inline-block; background:var(--primary-color); color:#FFF;
+    padding:0.75rem 1.5rem; border-radius:6px; text-transform:uppercase;
+    letter-spacing:0.05em; transition:background .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { background:#3399E6; box-shadow:0 4px 12px rgba(0,0,0,.1); }
+- Layout: use Flexbox or CSS Grid for multi-column sections.
+- Breakpoints:
+  • Desktop ≥1024px (multi-column)
+  • Tablet 768–1023px (2 columns/adjusted grid)
+  • Mobile ≤767px (single column, hamburger nav)
+  • H1 scales ~3rem (desktop) → 2rem (tablet) → 1.5rem (mobile)
+- Provide ample spacing so sections “breathe.”
+
+ASSETS
+- Create assets/images/. Download permitted images; otherwise, use placeholders and note with HTML comments.
+
+DELIVERABLE
+- Write all files to the workspace exactly as specified.
+- When done, list what you created/updated so I can click “Apply All” and preview.
