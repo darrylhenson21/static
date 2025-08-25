@@ -22,10 +22,14 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        {/* Add this wrapper and keep the base exactly "/static" */}
+        <WouterRouter base="/static">
+          <Router />
+        </WouterRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
 }
+
 
 export default App;
